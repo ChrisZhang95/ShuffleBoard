@@ -10,6 +10,10 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +30,15 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
+            
+            
             skView.presentScene(scene)
+            
         }
+        
+        
     }
-
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
+    
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
@@ -41,6 +47,8 @@ class GameViewController: UIViewController {
             return .All
         }
     }
+    
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD360B7F1D017965002AC0E3"
-               BuildableName = "ShuffleBoard.app"
-               BlueprintName = "ShuffleBoard"
-               ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+               BuildableName = "BoardGame.app"
+               BlueprintName = "BoardGame"
+               ReferencedContainer = "container:BoardGame.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD360B971D017965002AC0E3"
-               BuildableName = "ShuffleBoardTests.xctest"
-               BlueprintName = "ShuffleBoardTests"
-               ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+               BuildableName = "BoardGame.xctest"
+               BlueprintName = "BoardGameTests"
+               ReferencedContainer = "container:BoardGame.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD360BA21D017965002AC0E3"
-               BuildableName = "ShuffleBoardUITests.xctest"
-               BlueprintName = "ShuffleBoardUITests"
-               ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+               BuildableName = "BoardGame.xctest"
+               BlueprintName = "BoardGameUITests"
+               ReferencedContainer = "container:BoardGame.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD360B7F1D017965002AC0E3"
-            BuildableName = "ShuffleBoard.app"
-            BlueprintName = "ShuffleBoard"
-            ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+            BuildableName = "BoardGame.app"
+            BlueprintName = "BoardGame"
+            ReferencedContainer = "container:BoardGame.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD360B7F1D017965002AC0E3"
-            BuildableName = "ShuffleBoard.app"
-            BlueprintName = "ShuffleBoard"
-            ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+            BuildableName = "BoardGame.app"
+            BlueprintName = "BoardGame"
+            ReferencedContainer = "container:BoardGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD360B7F1D017965002AC0E3"
-            BuildableName = "ShuffleBoard.app"
-            BlueprintName = "ShuffleBoard"
-            ReferencedContainer = "container:ShuffleBoard.xcodeproj">
+            BuildableName = "BoardGame.app"
+            BlueprintName = "BoardGame"
+            ReferencedContainer = "container:BoardGame.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

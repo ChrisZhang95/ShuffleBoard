@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD360B801D017965002AC0E3 /* ShuffleBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShuffleBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD360B801D017965002AC0E3 /* BoardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD360B831D017965002AC0E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD360B851D017965002AC0E3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		BD360B871D017965002AC0E3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -45,10 +45,10 @@
 		BD360B8E1D017965002AC0E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD360B911D017965002AC0E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD360B931D017965002AC0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD360B981D017965002AC0E3 /* ShuffleBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShuffleBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD360B981D017965002AC0E3 /* BoardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD360B9C1D017965002AC0E3 /* ShuffleBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleBoardTests.swift; sourceTree = "<group>"; };
 		BD360B9E1D017965002AC0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD360BA31D017965002AC0E3 /* ShuffleBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShuffleBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD360BA31D017965002AC0E3 /* BoardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD360BA71D017965002AC0E3 /* ShuffleBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleBoardUITests.swift; sourceTree = "<group>"; };
 		BD360BA91D017965002AC0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,9 +81,9 @@
 		BD360B771D017965002AC0E3 = {
 			isa = PBXGroup;
 			children = (
-				BD360B821D017965002AC0E3 /* ShuffleBoard */,
-				BD360B9B1D017965002AC0E3 /* ShuffleBoardTests */,
-				BD360BA61D017965002AC0E3 /* ShuffleBoardUITests */,
+				BD360B821D017965002AC0E3 /* BoardGame */,
+				BD360B9B1D017965002AC0E3 /* BoardGameTests */,
+				BD360BA61D017965002AC0E3 /* BoardGameUITests */,
 				BD360B811D017965002AC0E3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,14 +91,14 @@
 		BD360B811D017965002AC0E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD360B801D017965002AC0E3 /* ShuffleBoard.app */,
-				BD360B981D017965002AC0E3 /* ShuffleBoardTests.xctest */,
-				BD360BA31D017965002AC0E3 /* ShuffleBoardUITests.xctest */,
+				BD360B801D017965002AC0E3 /* BoardGame.app */,
+				BD360B981D017965002AC0E3 /* BoardGame.xctest */,
+				BD360BA31D017965002AC0E3 /* BoardGame.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BD360B821D017965002AC0E3 /* ShuffleBoard */ = {
+		BD360B821D017965002AC0E3 /* BoardGame */ = {
 			isa = PBXGroup;
 			children = (
 				BD360B831D017965002AC0E3 /* AppDelegate.swift */,
@@ -110,33 +110,36 @@
 				BD360B901D017965002AC0E3 /* LaunchScreen.storyboard */,
 				BD360B931D017965002AC0E3 /* Info.plist */,
 			);
+			name = BoardGame;
 			path = ShuffleBoard;
 			sourceTree = "<group>";
 		};
-		BD360B9B1D017965002AC0E3 /* ShuffleBoardTests */ = {
+		BD360B9B1D017965002AC0E3 /* BoardGameTests */ = {
 			isa = PBXGroup;
 			children = (
 				BD360B9C1D017965002AC0E3 /* ShuffleBoardTests.swift */,
 				BD360B9E1D017965002AC0E3 /* Info.plist */,
 			);
+			name = BoardGameTests;
 			path = ShuffleBoardTests;
 			sourceTree = "<group>";
 		};
-		BD360BA61D017965002AC0E3 /* ShuffleBoardUITests */ = {
+		BD360BA61D017965002AC0E3 /* BoardGameUITests */ = {
 			isa = PBXGroup;
 			children = (
 				BD360BA71D017965002AC0E3 /* ShuffleBoardUITests.swift */,
 				BD360BA91D017965002AC0E3 /* Info.plist */,
 			);
+			name = BoardGameUITests;
 			path = ShuffleBoardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD360B7F1D017965002AC0E3 /* ShuffleBoard */ = {
+		BD360B7F1D017965002AC0E3 /* BoardGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD360BAC1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoard" */;
+			buildConfigurationList = BD360BAC1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGame" */;
 			buildPhases = (
 				BD360B7C1D017965002AC0E3 /* Sources */,
 				BD360B7D1D017965002AC0E3 /* Frameworks */,
@@ -146,14 +149,14 @@
 			);
 			dependencies = (
 			);
-			name = ShuffleBoard;
+			name = BoardGame;
 			productName = ShuffleBoard;
-			productReference = BD360B801D017965002AC0E3 /* ShuffleBoard.app */;
+			productReference = BD360B801D017965002AC0E3 /* BoardGame.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BD360B971D017965002AC0E3 /* ShuffleBoardTests */ = {
+		BD360B971D017965002AC0E3 /* BoardGameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD360BAF1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoardTests" */;
+			buildConfigurationList = BD360BAF1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameTests" */;
 			buildPhases = (
 				BD360B941D017965002AC0E3 /* Sources */,
 				BD360B951D017965002AC0E3 /* Frameworks */,
@@ -164,14 +167,14 @@
 			dependencies = (
 				BD360B9A1D017965002AC0E3 /* PBXTargetDependency */,
 			);
-			name = ShuffleBoardTests;
+			name = BoardGameTests;
 			productName = ShuffleBoardTests;
-			productReference = BD360B981D017965002AC0E3 /* ShuffleBoardTests.xctest */;
+			productReference = BD360B981D017965002AC0E3 /* BoardGame.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BD360BA21D017965002AC0E3 /* ShuffleBoardUITests */ = {
+		BD360BA21D017965002AC0E3 /* BoardGameUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD360BB21D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoardUITests" */;
+			buildConfigurationList = BD360BB21D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameUITests" */;
 			buildPhases = (
 				BD360B9F1D017965002AC0E3 /* Sources */,
 				BD360BA01D017965002AC0E3 /* Frameworks */,
@@ -182,9 +185,9 @@
 			dependencies = (
 				BD360BA51D017965002AC0E3 /* PBXTargetDependency */,
 			);
-			name = ShuffleBoardUITests;
+			name = BoardGameUITests;
 			productName = ShuffleBoardUITests;
-			productReference = BD360BA31D017965002AC0E3 /* ShuffleBoardUITests.xctest */;
+			productReference = BD360BA31D017965002AC0E3 /* BoardGame.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -213,7 +216,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BD360B7B1D017965002AC0E3 /* Build configuration list for PBXProject "ShuffleBoard" */;
+			buildConfigurationList = BD360B7B1D017965002AC0E3 /* Build configuration list for PBXProject "BoardGame" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -226,9 +229,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD360B7F1D017965002AC0E3 /* ShuffleBoard */,
-				BD360B971D017965002AC0E3 /* ShuffleBoardTests */,
-				BD360BA21D017965002AC0E3 /* ShuffleBoardUITests */,
+				BD360B7F1D017965002AC0E3 /* BoardGame */,
+				BD360B971D017965002AC0E3 /* BoardGameTests */,
+				BD360BA21D017965002AC0E3 /* BoardGameUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,12 +296,12 @@
 /* Begin PBXTargetDependency section */
 		BD360B9A1D017965002AC0E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD360B7F1D017965002AC0E3 /* ShuffleBoard */;
+			target = BD360B7F1D017965002AC0E3 /* BoardGame */;
 			targetProxy = BD360B991D017965002AC0E3 /* PBXContainerItemProxy */;
 		};
 		BD360BA51D017965002AC0E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BD360B7F1D017965002AC0E3 /* ShuffleBoard */;
+			target = BD360B7F1D017965002AC0E3 /* BoardGame */;
 			targetProxy = BD360BA41D017965002AC0E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -415,7 +418,7 @@
 				INFOPLIST_FILE = ShuffleBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BoardGame;
 			};
 			name = Debug;
 		};
@@ -426,7 +429,7 @@
 				INFOPLIST_FILE = ShuffleBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BoardGame;
 			};
 			name = Release;
 		};
@@ -438,8 +441,8 @@
 				INFOPLIST_FILE = ShuffleBoardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShuffleBoard.app/ShuffleBoard";
+				PRODUCT_NAME = BoardGame;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardGame.app/BoardGame";
 			};
 			name = Debug;
 		};
@@ -450,8 +453,8 @@
 				INFOPLIST_FILE = ShuffleBoardTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoardTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShuffleBoard.app/ShuffleBoard";
+				PRODUCT_NAME = BoardGame;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardGame.app/BoardGame";
 			};
 			name = Release;
 		};
@@ -462,7 +465,7 @@
 				INFOPLIST_FILE = ShuffleBoardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BoardGame;
 				TEST_TARGET_NAME = ShuffleBoard;
 			};
 			name = Debug;
@@ -473,7 +476,7 @@
 				INFOPLIST_FILE = ShuffleBoardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.edu.chris.ShuffleBoardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BoardGame;
 				TEST_TARGET_NAME = ShuffleBoard;
 			};
 			name = Release;
@@ -481,7 +484,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD360B7B1D017965002AC0E3 /* Build configuration list for PBXProject "ShuffleBoard" */ = {
+		BD360B7B1D017965002AC0E3 /* Build configuration list for PBXProject "BoardGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD360BAA1D017965002AC0E3 /* Debug */,
@@ -490,7 +493,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD360BAC1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoard" */ = {
+		BD360BAC1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD360BAD1D017965002AC0E3 /* Debug */,
@@ -498,7 +501,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		BD360BAF1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoardTests" */ = {
+		BD360BAF1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD360BB01D017965002AC0E3 /* Debug */,
@@ -506,7 +509,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		BD360BB21D017965002AC0E3 /* Build configuration list for PBXNativeTarget "ShuffleBoardUITests" */ = {
+		BD360BB21D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD360BB31D017965002AC0E3 /* Debug */,
