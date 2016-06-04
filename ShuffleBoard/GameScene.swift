@@ -292,10 +292,13 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         for t in touches {
             let touch = t as UITouch
             let location = touch.locationInNode(self)
-            if player1.frame.contains(location) && gameOver == false{
+            //print(location)
+            let distance1 = sqrt(pow((location.x - player1.position.x), 2) + pow((location.y - player1.position.y), 2))
+            let distance2 = sqrt(pow((location.x - player2.position.x), 2) + pow((location.y - player2.position.y), 2))
+            if distance1 < distance2 && gameOver == false{
                 touchPoint1 = location
             }
-            if player2.frame.contains(location) && gameOver == false{
+            if distance1 >= distance2 && gameOver == false{
                 touchPoint2 = location
             }
             
@@ -304,8 +307,18 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        touchingPlayer1 = false
-        touchingPlayer2 = false
+        for t in touches {
+            let touch = t as UITouch
+            let location = touch.locationInNode(self)
+            if player1.frame.contains(location) && gameOver == false{
+                touchingPlayer1 = false
+            }
+            if player2.frame.contains(location) && gameOver == false{
+                touchingPlayer2 = false
+            }
+        }
+        
+        
     }
     
     
@@ -318,6 +331,7 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
             let velocity = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
             player1.physicsBody!.velocity=velocity
         }
+        
         if touchingPlayer2 {
             let dt:CGFloat = 1.0/60.0
             let distance = CGVector(dx: touchPoint2.x - player2.position.x, dy: touchPoint2.y - player2.position.y)
