@@ -42,6 +42,7 @@ var readyRestart1 = Bool()
 var readyRestart2 = Bool()
 
 
+
 class GameScene: SKScene ,SKPhysicsContactDelegate{
     
     
@@ -51,6 +52,7 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         self.physicsBody = worldBorder
         self.view!.multipleTouchEnabled = true
         
+        
         player1.position = CGPoint(x: self.frame.width / 2, y: CGRectGetMidY(self.frame) / 2)
         player1.physicsBody = SKPhysicsBody(circleOfRadius: player1.frame.height / 2 - 7)
         player1.setScale(2)
@@ -58,7 +60,7 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         player1.physicsBody?.allowsRotation = false
         player1.physicsBody?.categoryBitMask = physicsCategory.player1
         //player1.physicsBody?.collisionBitMask = physicsCategory.ball | physicsCategory.player2
-        //player1.physicsBody?.contactTestBitMask = physicsCategory.ball | physicsCategory.player2
+        //player1.physicsBody?.contactTestBitMask = physicsCategory.player2
         self.addChild(player1)
         
         
@@ -295,10 +297,10 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
             //print(location)
             let distance1 = sqrt(pow((location.x - player1.position.x), 2) + pow((location.y - player1.position.y), 2))
             let distance2 = sqrt(pow((location.x - player2.position.x), 2) + pow((location.y - player2.position.y), 2))
-            if distance1 < distance2 && gameOver == false{
+            if distance1 < distance2 && gameOver == false && location.y < self.frame.height/2{
                 touchPoint1 = location
             }
-            if distance1 >= distance2 && gameOver == false{
+            if distance1 >= distance2 && gameOver == false && location.y > self.frame.height/2{
                 touchPoint2 = location
             }
             
