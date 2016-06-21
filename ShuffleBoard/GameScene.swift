@@ -16,6 +16,7 @@ struct physicsCategory {
     static let ball : UInt32 = 0x1 << 3
     static let gate1 : UInt32 = 0x1 << 4
     static let gate2 : UInt32 = 0x1 << 5
+    static let border : UInt32 = 0x1 << 6
 }
 
 let player1 = SKSpriteNode(imageNamed: "player1")
@@ -40,26 +41,36 @@ var restartButton2 = SKSpriteNode()
 var gameOver = Bool()
 var readyRestart1 = Bool()
 var readyRestart2 = Bool()
-
+var player1Scored = Bool()
+var player2Scored = Bool()
+let midline = SKSpriteNode(imageNamed: "Gate1")
+let restartLabel1 = SKLabelNode()
+let restartLabel2 = SKLabelNode()
 
 
 class GameScene: SKScene ,SKPhysicsContactDelegate{
     
     
-    func createScene() {
+    func createSceneP1() {
         self.physicsWorld.contactDelegate = self
         let worldBorder = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.physicsBody = worldBorder
         self.view!.multipleTouchEnabled = true
+        worldBorder.categoryBitMask = physicsCategory.border
+
         
+        midline.position = CGPoint(x: 538.153, y: 960)
+        midline.size.width = 1068
+        midline.size.height = 10
+        self.addChild(midline)
         
-        player1.position = CGPoint(x: self.frame.width / 2, y: CGRectGetMidY(self.frame) / 2)
+        player1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4)
         player1.physicsBody = SKPhysicsBody(circleOfRadius: player1.frame.height / 2 - 7)
         player1.setScale(2)
         player1.physicsBody?.affectedByGravity = false
         player1.physicsBody?.allowsRotation = false
         player1.physicsBody?.categoryBitMask = physicsCategory.player1
-        //player1.physicsBody?.collisionBitMask = physicsCategory.ball | physicsCategory.player2
+        player1.physicsBody?.collisionBitMask = physicsCategory.border
         //player1.physicsBody?.contactTestBitMask = physicsCategory.player2
         self.addChild(player1)
         
@@ -71,11 +82,93 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         player2.physicsBody?.affectedByGravity = false
         player2.physicsBody?.allowsRotation = false
         player2.physicsBody?.categoryBitMask = physicsCategory.player2
-        //player2.physicsBody?.collisionBitMask = physicsCategory.ball | physicsCategory.player1
+        player2.physicsBody?.collisionBitMask = physicsCategory.border
         //player2.physicsBody?.contactTestBitMask = physicsCategory.ball | physicsCategory.player1
         self.addChild(player2)
         
-        ball.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 7)
+        ball.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 200)
+        ball.setScale(0.5)
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.height/2-5)
+        ball.physicsBody?.restitution = 0.5
+        ball.physicsBody?.affectedByGravity = false
+        ball.physicsBody?.allowsRotation = true
+        ball.physicsBody?.dynamic = true
+        ball.physicsBody?.categoryBitMask = physicsCategory.ball
+        self.addChild(ball)
+        
+        gate1.setScale(2)
+        gate1.position = CGPoint(x: self.frame.width / 2, y: 10)
+        gate1.physicsBody = SKPhysicsBody(rectangleOfSize: gate1.frame.size)
+        gate1.physicsBody?.affectedByGravity = false
+        gate1.physicsBody?.dynamic = false
+        gate1.physicsBody?.categoryBitMask = physicsCategory.gate1
+        gate1.physicsBody?.contactTestBitMask = physicsCategory.ball
+        self.addChild(gate1)
+        
+        gate2.setScale(2)
+        gate2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 10)
+        gate2.physicsBody = SKPhysicsBody(rectangleOfSize: gate2.frame.size)
+        gate2.physicsBody?.affectedByGravity = false
+        gate2.physicsBody?.dynamic = false
+        gate2.physicsBody?.categoryBitMask = physicsCategory.gate2
+        gate2.physicsBody?.contactTestBitMask = physicsCategory.ball
+        self.addChild(gate2)
+        
+        scoreLabel1.zRotation = CGFloat(M_PI)
+        scoreLabel1.position = CGPoint(x: self.frame.width/5, y: self.frame.height / 2 + 100)
+        scoreLabel1.zPosition = 4
+        scoreLabel1.text = "\(player1Score)"//converting int to string
+        scoreLabel1.fontColor = SKColor.redColor()
+        scoreLabel1.fontName = "Arial"
+        scoreLabel1.fontSize = 60
+        self.addChild(scoreLabel1)
+        
+        scoreLabel2.position = CGPoint(x: self.frame.width/5*4, y: self.frame.height / 2 - 100)
+        scoreLabel2.zPosition = 4
+        scoreLabel2.text = "\(player2Score)"//converting int to string
+        scoreLabel2.fontColor = SKColor.blueColor()
+        scoreLabel2.fontName = "Arial"
+        scoreLabel2.fontSize = 60
+        self.addChild(scoreLabel2)
+    }
+    
+    func createSceneP2() {
+        self.physicsWorld.contactDelegate = self
+        let worldBorder = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody = worldBorder
+        self.view!.multipleTouchEnabled = true
+        worldBorder.categoryBitMask = physicsCategory.border
+        
+        
+        midline.position = CGPoint(x: 538.153, y: 960)
+        midline.size.width = 1068
+        midline.size.height = 10
+        self.addChild(midline)
+        
+        
+        player1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4)
+        player1.physicsBody = SKPhysicsBody(circleOfRadius: player1.frame.height / 2 - 7)
+        player1.setScale(2)
+        player1.physicsBody?.affectedByGravity = false
+        player1.physicsBody?.allowsRotation = false
+        player1.physicsBody?.categoryBitMask = physicsCategory.player1
+        player1.physicsBody?.collisionBitMask = physicsCategory.border
+        //player1.physicsBody?.contactTestBitMask = physicsCategory.player2
+        self.addChild(player1)
+        
+        
+        player2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 * 3)
+        player2.physicsBody = SKPhysicsBody(circleOfRadius: player2.frame.height / 2 - 7)
+        player2.setScale(2)
+        //player2.physicsBody?.restitution = 0.1
+        player2.physicsBody?.affectedByGravity = false
+        player2.physicsBody?.allowsRotation = false
+        player2.physicsBody?.categoryBitMask = physicsCategory.player2
+        player2.physicsBody?.collisionBitMask = physicsCategory.border
+        //player2.physicsBody?.contactTestBitMask = physicsCategory.ball | physicsCategory.player1
+        self.addChild(player2)
+        
+        ball.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + 200)
         ball.setScale(0.5)
         ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.height/2)
         ball.physicsBody?.restitution = 0.5
@@ -106,7 +199,7 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         self.addChild(gate2)
         
         scoreLabel1.zRotation = CGFloat(M_PI)
-        scoreLabel1.position = CGPoint(x: self.frame.width/5, y: self.frame.height / 2 + 30)
+        scoreLabel1.position = CGPoint(x: self.frame.width/5, y: self.frame.height / 2 + 100)
         scoreLabel1.zPosition = 4
         scoreLabel1.text = "\(player1Score)"//converting int to string
         scoreLabel1.fontColor = SKColor.redColor()
@@ -114,7 +207,7 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         scoreLabel1.fontSize = 60
         self.addChild(scoreLabel1)
         
-        scoreLabel2.position = CGPoint(x: self.frame.width/5*4, y: self.frame.height / 2 - 10)
+        scoreLabel2.position = CGPoint(x: self.frame.width/5*4, y: self.frame.height / 2 - 100)
         scoreLabel2.zPosition = 4
         scoreLabel2.text = "\(player2Score)"//converting int to string
         scoreLabel2.fontColor = SKColor.blueColor()
@@ -123,11 +216,10 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         self.addChild(scoreLabel2)
     }
     
-    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
 
-        createScene()
+        createSceneP1()
 
     }
     
@@ -137,14 +229,15 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         let secondBody = contact.bodyB
         
         if firstBody.categoryBitMask == physicsCategory.ball && secondBody.categoryBitMask == physicsCategory.gate1 || firstBody.categoryBitMask == physicsCategory.gate1 && secondBody.categoryBitMask == physicsCategory.ball {
-            if scored != true && player2Score < 11 {
+            if scored != true && player2Score < 7 {
                 player1Score += 1
             }
             scored = true
+            player1Scored = true
             scoreLabel1.removeFromParent()
             scoreLabel1.text = "\(player1Score)"
             self.addChild(scoreLabel1)
-            if player1Score == 11 {
+            if player1Score == 7 {
                 player2WinEndScene()
                 createButton()
                 gameOver = true
@@ -155,14 +248,15 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         }
         
         else if firstBody.categoryBitMask == physicsCategory.ball && secondBody.categoryBitMask == physicsCategory.gate2 || firstBody.categoryBitMask == physicsCategory.gate2 && secondBody.categoryBitMask == physicsCategory.ball {
-            if scored != true && player2Score < 11 {
+            if scored != true && player2Score < 7 {
                 player2Score += 1
             }
             scored = true
+            player2Scored = true
             scoreLabel2.removeFromParent()
             scoreLabel2.text = "\(player2Score)"
             self.addChild(scoreLabel2)
-            if player2Score == 11 {
+            if player2Score == 7 {
                 player1WinEndScene()
                 createButton()
                 gameOver = true
@@ -226,14 +320,14 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
     }
     
     func createButton() {
-        restartButton1 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 120, height: 100))
+        restartButton1 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 250, height: 100))
         restartButton1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 - 100)
         restartButton1.zPosition = 5
         restartButton1.setScale(0)
         self.addChild(restartButton1)
-        restartButton1.runAction(SKAction.scaleTo(1.0, duration: 0.4))
+        //restartButton1.runAction(SKAction.scaleTo(2.0, duration: 0.4))
         
-        restartButton2 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 120, height: 100))
+        restartButton2 = SKSpriteNode(color: SKColor.blackColor(), size: CGSize(width: 250, height: 100))
         restartButton2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 * 3 + 100)
         restartButton2.zPosition = 5
         restartButton2.setScale(0)
@@ -241,16 +335,49 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
 
         restartButton1.runAction(SKAction.scaleTo(1.0, duration: 0.4))
         restartButton2.runAction(SKAction.scaleTo(1.0, duration: 0.4))
+        
+        restartLabel1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 - 120)
+        restartLabel1.zPosition = 5
+        restartLabel1.text = "Restart"
+        restartLabel1.fontSize = 70
+        restartLabel1.fontName = "Arial"
+        restartLabel1.fontColor = SKColor.whiteColor()
+        restartLabel1.removeFromParent()
+        restartLabel1.setScale(0)
+        self.addChild((restartLabel1))
+        restartLabel1.runAction(SKAction.scaleTo(1.0, duration: 0.4))
+        
+        restartLabel2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 * 3 + 120)
+        restartLabel2.zPosition = 5
+        restartLabel2.text = "Restart"
+        restartLabel2.zRotation = CGFloat(M_PI)
+        restartLabel2.fontSize = 70
+        restartLabel2.fontName = "Arial"
+        restartLabel2.fontColor = SKColor.whiteColor()
+        restartLabel2.removeFromParent()
+        restartLabel2.setScale(0)
+        self.addChild((restartLabel2))
+        restartLabel2.runAction(SKAction.scaleTo(1.0, duration: 0.4))
 
     }
     
     
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
+        
+        
         if scored == true && gameOver == false{
             self.removeAllChildren()
-            createScene()
+            if (player1Scored == true) {
+                createSceneP1()
+            }
+            if (player2Scored == true) {
+                createSceneP2()
+            }
             scored = false
+            player1Scored = false
+            player2Scored = false
         }
         //let touch = touches.first as! UITouch?
         for t in touches {
@@ -284,10 +411,17 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
         player1Score = 0
         player2Score = 0
         gameOver = false
+        scored = false
         readyRestart1 = false
         readyRestart2 = false
+        player1Scored = false
+        player2Scored = false
+        touchingPlayer1 = false
+        touchingPlayer2 = false
         self.removeAllChildren()
-        createScene()
+        player1.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4)
+        player2.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 4 * 3)
+        createSceneP1()
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -327,6 +461,15 @@ class GameScene: SKScene ,SKPhysicsContactDelegate{
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if player1.position.y > self.frame.height / 2 - player1.size.height / 2 {
+            player1.physicsBody?.velocity = CGVectorMake(0, 0)
+            //touchingPlayer1 = false
+        }
+        
+        if player2.position.y <= self.frame.height / 2 + player2.size.height / 2 {
+            //touchingPlayer2 = false
+            player2.physicsBody?.velocity = CGVectorMake(0, 0)
+        }
         if touchingPlayer1 {
             let dt:CGFloat = 1.0/60.0
             let distance = CGVector(dx: touchPoint1.x - player1.position.x, dy: touchPoint1.y - player1.position.y)

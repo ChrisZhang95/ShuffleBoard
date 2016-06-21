@@ -12,10 +12,10 @@
 		BD360B881D017965002AC0E3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD360B871D017965002AC0E3 /* GameScene.swift */; };
 		BD360B8A1D017965002AC0E3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD360B891D017965002AC0E3 /* GameViewController.swift */; };
 		BD360B8D1D017965002AC0E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD360B8B1D017965002AC0E3 /* Main.storyboard */; };
-		BD360B8F1D017965002AC0E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD360B8E1D017965002AC0E3 /* Assets.xcassets */; };
 		BD360B921D017965002AC0E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD360B901D017965002AC0E3 /* LaunchScreen.storyboard */; };
 		BD360B9D1D017965002AC0E3 /* ShuffleBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD360B9C1D017965002AC0E3 /* ShuffleBoardTests.swift */; };
 		BD360BA81D017965002AC0E3 /* ShuffleBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD360BA71D017965002AC0E3 /* ShuffleBoardUITests.swift */; };
+		BDCBE39F1D192D9E00D9D92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCBE39E1D192D9E00D9D92C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 		BD360B871D017965002AC0E3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		BD360B891D017965002AC0E3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BD360B8C1D017965002AC0E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BD360B8E1D017965002AC0E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD360B911D017965002AC0E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD360B931D017965002AC0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD360B981D017965002AC0E3 /* BoardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +50,7 @@
 		BD360BA31D017965002AC0E3 /* BoardGame.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGame.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD360BA71D017965002AC0E3 /* ShuffleBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleBoardUITests.swift; sourceTree = "<group>"; };
 		BD360BA91D017965002AC0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDCBE39E1D192D9E00D9D92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ShuffleBoardTests/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +101,12 @@
 		BD360B821D017965002AC0E3 /* BoardGame */ = {
 			isa = PBXGroup;
 			children = (
+				BDCBE39E1D192D9E00D9D92C /* Assets.xcassets */,
 				BD360B831D017965002AC0E3 /* AppDelegate.swift */,
 				BD360B851D017965002AC0E3 /* GameScene.sks */,
 				BD360B871D017965002AC0E3 /* GameScene.swift */,
 				BD360B891D017965002AC0E3 /* GameViewController.swift */,
 				BD360B8B1D017965002AC0E3 /* Main.storyboard */,
-				BD360B8E1D017965002AC0E3 /* Assets.xcassets */,
 				BD360B901D017965002AC0E3 /* LaunchScreen.storyboard */,
 				BD360B931D017965002AC0E3 /* Info.plist */,
 			);
@@ -243,7 +243,7 @@
 			files = (
 				BD360B861D017965002AC0E3 /* GameScene.sks in Resources */,
 				BD360B921D017965002AC0E3 /* LaunchScreen.storyboard in Resources */,
-				BD360B8F1D017965002AC0E3 /* Assets.xcassets in Resources */,
+				BDCBE39F1D192D9E00D9D92C /* Assets.xcassets in Resources */,
 				BD360B8D1D017965002AC0E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +500,7 @@
 				BD360BAE1D017965002AC0E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD360BAF1D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +509,7 @@
 				BD360BB11D017965002AC0E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD360BB21D017965002AC0E3 /* Build configuration list for PBXNativeTarget "BoardGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +518,7 @@
 				BD360BB41D017965002AC0E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
